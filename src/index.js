@@ -11,10 +11,9 @@ try {
 
 /**
  * @param {import("@textlint/types").TextlintRuleContext} context
- * @param {import("@textlint/types").TextlintRuleOptions<{ allows?: string[]}>} options
  * @returns {import("@textlint/types").TextlintRuleCreator}
  */
-function report (context, options = {}) {
+function report (context) {
     const { Syntax, RuleError, fixer, report, getSource, locator } = context;
     const regex = new RegExp(`[${Object.keys(characters).join("")}]`, "g");
 
@@ -24,7 +23,6 @@ function report (context, options = {}) {
             const text = getSource(node); // Get text
             const matches = text.matchAll(regex);
             for (const match of matches) {
-                console.log(match[0], );
                 const index = match.index ?? 0;
                 const matchRange = [index, index + match[0].length];
                 const ruleError = new RuleError(`Found letter ${characters[match[0]].name}.`, {
