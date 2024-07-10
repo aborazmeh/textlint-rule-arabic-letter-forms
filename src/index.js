@@ -13,7 +13,7 @@ try {
  * @param {import("@textlint/types").TextlintRuleContext} context
  * @returns {import("@textlint/types").TextlintRuleCreator}
  */
-function report (context) {
+function report(context) {
     const { Syntax, RuleError, fixer, report, getSource, locator } = context;
     const regex = new RegExp(`[${Object.keys(characters).join("")}]`, "g");
 
@@ -27,15 +27,15 @@ function report (context) {
                 const matchRange = [index, index + match[0].length];
                 const ruleError = new RuleError(`Found letter ${characters[match[0]].name}.`, {
                     padding: locator.range(matchRange),
-                  fix: fixer.replaceTextRange(matchRange, characters[match[0]].replace)
+                    fix: fixer.replaceTextRange(matchRange, characters[match[0]].replace),
                 });
                 report(node, ruleError);
             }
-        }
+        },
     };
 }
 
 export default {
-  linter: report,
-  fixer: report,
-}
+    linter: report,
+    fixer: report,
+};

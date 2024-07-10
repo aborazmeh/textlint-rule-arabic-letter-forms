@@ -15,7 +15,7 @@ function buildNormalizeArabic(charactersObject) {
                 // replace(' 0020', '').replace(' 0640', '').split(' ')
                 obj[symbol] = {
                     name: name,
-                    replace: mappingCharacters.map((code) => String.fromCodePoint(parseInt(code, 16))).join("")
+                    replace: mappingCharacters.map((code) => String.fromCodePoint(parseInt(code, 16))).join(""),
                 };
             }
         }

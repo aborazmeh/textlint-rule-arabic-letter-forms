@@ -19,7 +19,7 @@
     "singleQuote": false,
     "printWidth": 120,
     "tabWidth": 4,
-    "trailingComma": "none"
+    "trailingComma": "es5"
   },
   "devDependencies": {
     "@textlint/types": "^14.0.4",
