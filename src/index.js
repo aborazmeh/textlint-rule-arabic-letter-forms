@@ -6,7 +6,7 @@ try {
     const filePath = path.join(__dirname, "..", "lib", "data.json");
     characters = JSON.parse(fs.readFileSync(filePath, "utf8"));
 } catch (err) {
-    console.error("Error reading file", err);
+    console.error("Error reading data file", err);
 }
 
 /**
