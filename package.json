@@ -9,8 +9,8 @@
     "src/"
   ],
   "scripts": {
-    "test": "textlint-scripts test",
-    "build": "textlint-scripts build",
+    "test": "npm run update; textlint-scripts test",
+    "build": "npm run update; textlint-scripts build",
     "prepublish": "npm run --if-present build",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
     "update": "node src/update.js"
