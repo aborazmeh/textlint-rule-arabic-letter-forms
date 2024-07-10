@@ -3,7 +3,12 @@
 
 A rule to find strict forms of letters (isolated, initial, medial, final) and normalize them.
 
-These forms usually cause problems with search as softwares don't look for other letter forms, for example try to look for `كلمة` and you won't probably get `ﻛﻠﻤﺔ` as a match
+These forms usually cause problems with search as softwares don't look for other letter forms, for example try to look for `كلمة` and you won't probably get `ﻛﻠﻤﺔ` as a match:
+
+- the character `ك` (`U+0643`) ≠ `ﻛ` (`U+FEDB`)
+- the character `ل` (`U+0644`) ≠ `ﻠ` (`U+FEE0`)
+- the character `م` (`U+0645`) ≠ `ﻤ` (`U+FEE4`)
+- the character `ة` (`U+0629`) ≠ `ﺔ` (`U+FE94`)
 
 ## Install
 
