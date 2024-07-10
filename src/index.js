@@ -14,8 +14,8 @@ try {
  * @param {import("@textlint/types").TextlintRuleOptions<{ allows?: string[]}>} options
  * @returns {import("@textlint/types").TextlintRuleCreator}
  */
-export default function (context, options = {}) {
-    const { Syntax, RuleError, report, getSource, locator } = context;
+function report (context, options = {}) {
+    const { Syntax, RuleError, fixer, report, getSource, locator } = context;
     const regex = new RegExp(`[${Object.keys(characters).join("")}]`, "g");
 
     return {
@@ -28,10 +28,16 @@ export default function (context, options = {}) {
                 const index = match.index ?? 0;
                 const matchRange = [index, index + match[0].length];
                 const ruleError = new RuleError(`Found letter ${characters[match[0]].name}.`, {
-                    padding: locator.range(matchRange)
+                    padding: locator.range(matchRange),
+                  fix: fixer.replaceTextRange(matchRange, characters[match[0]].replace)
                 });
                 report(node, ruleError);
             }
         }
     };
+}
+
+export default {
+  linter: report,
+  fixer: report,
 }
