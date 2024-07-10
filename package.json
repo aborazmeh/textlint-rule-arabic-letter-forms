@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "keywords": [
+    "textlintrule"
+  ],
+  "main": "lib/index.js",
+  "files": [
+    "lib/",
+    "src/"
+  ],
+  "scripts": {
+    "test": "textlint-scripts test",
+    "build": "textlint-scripts build",
+    "prepublish": "npm run --if-present build",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
+    "update": "node src/update.js"
+  },
+  "prettier": {
+    "singleQuote": false,
+    "printWidth": 120,
+    "tabWidth": 4,
+    "trailingComma": "none"
+  },
+  "devDependencies": {
+    "@textlint/types": "^14.0.4",
+    "prettier": "^3.3.2",
+    "textlint-scripts": "^14.0.4",
+    "textlint-tester": "^14.0.4",
+    "unicode": "^14.0.0"
+  },
+  "name": "textlint-rule-arabic-letter-forms",
+  "description": "a rule to find strict forms of letters (isolated, initial, medial, final) and normalize them",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aborazmeh/textlint-rule-arabic-letter-forms.git"
+  },
+  "author": "aborazmeh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aborazmeh/textlint-rule-arabic-letter-forms/issues"
+  },
+  "homepage": "https://github.com/aborazmeh/textlint-rule-arabic-letter-forms#readme"
+}
