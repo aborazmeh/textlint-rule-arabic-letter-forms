@@ -80,7 +80,8 @@ Test textlint rule by [textlint-tester](https://github.com/textlint/textlint-tes
 
 ## TODO
 
-- Some characters have spaces in their mapping (like `U+FE70`, `U+FE72`, `U+FE74`), or a Kasheeda (Tatweel) (like `U+FE71`), the space and the Kasheeda should be probably removed, so the character will be on the previous letter as it should be.
+- Some characters have Kasheeda (Tatweel) (like `U+FE71`) in their mapping, the Kasheeda should be probably removed, so the character will be on the previous letter as it should be.
+- Handle long ligatures (like `U+FDFD`, `U+FDFA`, `U+FDFF`), or maybe normalize them by an option.
 
 ## License
 
