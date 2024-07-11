@@ -7,12 +7,13 @@ function buildNormalizeArabic(charactersObject) {
     for (const key in charactersObject) {
         const { name, symbol, mapping } = charactersObject[key];
         for (const match of mapping.matchAll(/^<(isolated|initial|final|medial)> (.*)/g)) {
-            // 0020: space
-            // 0640: kashida
-            mappingCharacters = match[2].split(" ");
-            // TODO handle longer ligatures
-            if (mappingCharacters.length < 4) {
-                // replace(' 0020', '').replace(' 0640', '').split(' ')
+          // 0640: kashida
+          mappingCharacters = match[2].split(" ");
+          if (mappingCharacters.length < 4) {
+              // if the first character of mapping is space, remove it
+              if (mappingCharacters[0] === '0020') {
+                mappingCharacters.shift()
+              }
                 obj[symbol] = {
                     name: name,
                     replace: mappingCharacters.map((code) => String.fromCodePoint(parseInt(code, 16))).join(""),
